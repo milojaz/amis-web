@@ -1,0 +1,113 @@
+<!-- scripts -->
+<!-- <script src="https://github.com/nagix/chartjs-plugin-streaming/releases/download/v1.7.1/chartjs-plugin-streaming.min.js"></script> -->
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+<script src="/js/slick.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="/js/wow.min.js"></script>
+
+<script>
+    $(function () {
+        new WOW().init();
+        $('.sidenav').sidenav();
+        $('select').formSelect();
+        $('.tabs').tabs();
+
+        // for HTML5 "required" attribute
+        $("select[required]").css({
+            display: "inline",
+            height: 0,
+            padding: 0,
+            width: 0
+        });
+        $('.collapsible').collapsible();
+        $('.datepicker').datepicker();
+        $('.slider').slider({
+            indicators: false,
+            interval: 5000,
+            height: 600
+        });
+        $('.dropdown-trigger').dropdown({
+            hover: true
+        });
+        $('.parallax').parallax({
+            height: 200
+        });
+        $('.materialboxed').materialbox();
+        $('.modal').modal();
+        $('.carousel').carousel();
+
+        // hiding the farmGate and the retail prcies by deafult
+        $('.farmgateContainer').hide();
+        $('.retailContainer').hide();
+
+        // wholesale click button
+        $('.wholesale').click(function () {
+            $('.wholesaleContainer').show();
+            $('.retailContainer').hide();
+            $('.farmgateContainer').hide();
+        });
+
+        // retail click button
+        $('.retail').click(function () {
+            $('.retailContainer').show();
+            $('.wholesaleContainer').hide();
+            $('.farmgateContainer').hide();
+        });
+
+        // farmgate click button
+        $('.farmgate').click(function () {
+            $('.farmgateContainer').show();
+            $('.wholesaleContainer').hide();
+            $('.retailContainer').hide();
+        });
+
+        $(".regular").slick({
+            dots: false,
+            infinite: true,
+            centerMode: false,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            adaptiveHeight: true,
+            arrows: true,
+            // prevArrow: true,
+            // nextArrow: true,
+        });
+
+
+        // $(".variable").slick({
+        //     dots: true,
+        //     infinite: true,
+        //     variableWidth: true
+        // });
+
+        // for the scroll to top button
+        var offset = 2;
+        var duration = 500;
+
+        // $('.to-top').fadeOut(duration);
+
+        $(window).scroll(function () {
+            if ((this).scrollTop() > offset) {
+                $('.to-top').fadeIn(duration);
+            } else {
+                $('.to-top').fadeOut(duration);
+            }
+        });
+
+        $('.to-top').click(function () {
+            $('body').animate({
+                scrollTop: 0,
+                duration
+            })
+        });
+
+
+        setTimeout(function () {
+            $('.alertCard').show();
+        }, 3000)
+    });
+</script>

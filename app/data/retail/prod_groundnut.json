@@ -1,0 +1,52 @@
+[{
+  "district": "Western Area Urban",
+  "price": 2
+}, {
+  "district": "Western Area Rural",
+  "price": 12
+}, {
+  "district": "Falaba",
+  "price": 1
+}, {
+  "district": "Koinadugu",
+  "price": 1
+}, {
+  "district": "Bombali",
+  "price": 1
+}, {
+  "district": "Tonkolili",
+  "price": 1
+}, {
+  "district": "Kambia",
+  "price": 1
+}, {
+  "district": "Kerene",
+  "price": 1
+}, {
+  "district": "Port Loko",
+  "price": 1
+}, {
+  "district": "Bo",
+  "price": 1
+}, {
+  "district": "Bonthe",
+  "price": 1
+}, {
+  "district": "Pujehun",
+  "price": 1
+}, {
+  "district": "Moyamba",
+  "price": 1
+}, {
+  "district": "Kenema",
+  "price": 1
+}, {
+  "district": "Kailahun",
+  "price": 1
+}, {
+  "district": "Kono",
+  "price": 1
+}, {
+  "district": "National",
+  "price": 1
+}]

@@ -1,0 +1,189 @@
+<html lang="en">
+
+<head>
+    <% include partials/templates/head.ejs %>
+
+</head>
+
+<body id="<%= pageID %>">
+
+    <% include partials/templates/web-header.ejs %>
+
+    <!-- display data page -->
+    <section class="section dispMarket_section">
+        <div class="col s12 m12 ">
+            <h5 class="center">Price Information</h5>
+            <br>
+            <br>
+            <div class="row">
+                <div class="container center">
+                    <div class="col m4">
+                        <button class="btn hoverable wholesale green white-text">View Wholesale Price</button>
+                    </div>
+                    <div class="col m4">
+                        <button class="btn hoverable retail green white-text">View Retail Price</button>
+                    </div>
+                    <div class="col m4">
+                        <button class="btn hoverable farmgate green white-text">View Farm Gate Price</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- wholesale chart section -->
+                <div class="container wholesaleContainer">
+                    <div class="col s12">
+                        <h4 class="center">Wholesale Prices</h4>
+                        <ul class="tabs tabs-fixed-width tab-demo z-depth-1">
+                            <li class="green-text tab col s2"><a class="active" href="#WHrice">Rice</a></li>
+                            <li class="green-text tab col s2"><a class="active" href="#WHcacao">Cacao</a></li>
+                            <li class="green-text tab col s2"><a class="active" href="#WHcoffee">Coffee</a></li>
+                            <li class="green-text tab col s2"><a class="active" href="#WHpalmoil">Palm Oil</a></li>
+                            <li class="green-text tab col s2"><a class="active" href="#WHcassava">Cassava</a></li>
+                            <li class="green-text tab col s2"><a class="active" href="#WHgroundnut">Groundnut</a></li>
+                            <li class="green-text tab col s2"><a class="active" href="#WHsweetpotato">Sweet Potato</a>
+                            </li>
+                            <li class="green-text tab col s2"><a class="active" href="#WHmaize">Maize</a></li>
+                        </ul>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <!-- Wholesale Charts  -->
+                    <div id="WHrice" class="col s12">
+                        <div id="riceChartWP" minHeight="100%" width="100%"></div>
+                    </div>
+                    <div id="WHcacao" class="col s12">
+                        <div id="cacaoChartWP" height="250px" width="100%"></div>
+                    </div>
+                    <div id="WHcoffee" class="col s12">
+                        <div id="coffeeChartWP" height="250px" width="100%"></div>
+                    </div>
+                    <div id="WHpalmoil" class="col s12">
+                        <div id="palmoilChartWP" height="250px" width="100%"></div>
+                    </div>
+                    <div id="WHcassava" class="col s12">
+                        <div id="cassavaChartWP" height="250px" width="100%"></div>
+                    </div>
+                    <div id="WHgroundnut" class="col s12">
+                        <div id="groundnutChartWP" height="250px" width="100%"></div>
+                    </div>
+                    <div id="WHsweetpotato" class="col s12">
+                        <div id="sweetpotatoChartWP" height="250px" width="100%"></div>
+                    </div>
+                    <div id="WHmaize" class="col s12">
+                        <div id="maizeChartWP" height="250px" width="100%"></div>
+                    </div>
+                    <!-- Wholesale Charts  -->
+                </div>
+                <!-- end of wholesale chart section -->
+                <!-- retail chart section -->
+                <div class="container retailContainer">
+                    <div class="col s12">
+                        <h4 class="center">Retail Prices</h4>
+                        <ul class="tabs tabs-fixed-width tab-demo z-depth-1">
+                            <li class="green-text tab col s2"><a class="active" href="#RPrice">Rice</a></li>
+                            <li class="green-text tab col s2"><a class="active" href="#RPcacao">Cacao</a></li>
+                            <li class="green-text tab col s2"><a class="active" href="#RPcoffee">Coffee</a></li>
+                            <li class="green-text tab col s2"><a class="active" href="#RPpalmoil">Palm Oil</a></li>
+                            <li class="green-text tab col s2"><a class="active" href="#RPcassava">Cassava</a></li>
+                            <li class="green-text tab col s2"><a class="active" href="#RPgroundnut">Groundnut</a></li>
+                            <li class="green-text tab col s2"><a class="active" href="#RPsweetpotato">Sweet Potato</a>
+                            </li>
+                            <li class="green-text tab col s2"><a class="active" href="#RPmaize">Maize</a></li>
+                        </ul>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <!-- retail Charts  -->
+                    <div id="RPrice" class="col s12">
+                        <div id="riceChartRP" minHeight="100%" width="100%"></div>
+                    </div>
+                    <div id="RPcacao" class="col s12">
+                        <div id="cacaoChartRP" height="250px" width="100%"></div>
+                    </div>
+                    <div id="RPcoffee" class="col s12">
+                        <div id="coffeeChartRP" height="250px" width="100%"></div>
+                    </div>
+                    <div id="RPpalmoil" class="col s12">
+                        <div id="palmoilChartRP" height="250px" width="100%"></div>
+                    </div>
+                    <div id="RPcassava" class="col s12">
+                        <div id="cassavaChartRP" height="250px" width="100%"></div>
+                    </div>
+                    <div id="RPgroundnut" class="col s12">
+                        <div id="groundnutChartRP" height="250px" width="100%"></div>
+                    </div>
+                    <div id="RPsweetpotato" class="col s12">
+                        <div id="sweetpotatoChartRP" height="250px" width="100%"></div>
+                    </div>
+                    <div id="RPmaize" class="col s12">
+                        <div id="maizeChartRP" height="250px" width="100%"></div>
+                    </div>
+                    <!-- retail Charts  -->
+                </div>
+                <!-- end of retail chart section -->
+                <!-- farm-gate chart section -->
+                <div class="container farmgateContainer">
+                    <div class="col s12">
+                        <h4 class="center">Farm Gate Prices</h4>
+                        <ul class="tabs tabs-fixed-width tab-demo z-depth-1">
+                            <li class="green-text tab col s2"><a class="active" href="#FGrice">Rice</a></li>
+                            <li class="green-text tab col s2"><a class="active" href="#FGcacao">Cacao</a></li>
+                            <li class="green-text tab col s2"><a class="active" href="#FGcoffee">Coffee</a></li>
+                            <li class="green-text tab col s2"><a class="active" href="#FGpalmoil">Palm Oil</a></li>
+                            <li class="green-text tab col s2"><a class="active" href="#FGcassava">Cassava</a></li>
+                            <li class="green-text tab col s2"><a class="active" href="#FGgroundnut">Groundnut</a></li>
+                            <li class="green-text tab col s2"><a class="active" href="#FGsweetpotato">Sweet Potato</a>
+                            </li>
+                            <li class="green-text tab col s2"><a class="active" href="#FGmaize">Maize</a></li>
+                        </ul>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <!-- farm-gate Charts  -->
+                    <div id="FGrice" class="col s12">
+                        <div id="riceChartFGP" minHeight="100%" width="100%"></div>
+                    </div>
+                    <div id="FGcacao" class="col s12">
+                        <div id="cacaoChartFGP" height="250px" width="100%"></div>
+                    </div>
+                    <div id="FGcoffee" class="col s12">
+                        <div id="coffeeChartFGP" height="250px" width="100%"></div>
+                    </div>
+                    <div id="FGpalmoil" class="col s12">
+                        <div id="palmoilChartFGP" height="250px" width="100%"></div>
+                    </div>
+                    <div id="FGcassava" class="col s12">
+                        <div id="cassavaChartFGP" height="250px" width="100%"></div>
+                    </div>
+                    <div id="FGgroundnut" class="col s12">
+                        <div id="groundnutChartFGP" height="250px" width="100%"></div>
+                    </div>
+                    <div id="FGsweetpotato" class="col s12">
+                        <div id="sweetpotatoChartFGP" height="250px" width="100%"></div>
+                    </div>
+                    <div id="FGmaize" class="col s12">
+                        <div id="maizeChartFGP" height="250px" width="100%"></div>
+                    </div>
+                    <!-- farm-gate Charts  -->
+                </div>
+                <!-- end of farm-gate chart section -->
+            </div>
+            <!-- second set -->
+        </div>
+        </div>
+    </section>
+
+    <!-- firebase script -->
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+    <script src="/js/firebaseConfig.js"></script>
+    <!-- including the js scripts template -->
+    <% include partials/templates/jsscripts.ejs %>
+
+    <!-- chart js link -->
+    <script src="/js/charts.js"></script>
+</body>
+
+</html>
