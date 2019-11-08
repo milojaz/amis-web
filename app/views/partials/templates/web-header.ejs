@@ -1,16 +1,15 @@
 <!-- navbar -->
-<header class="navbar-fixed">
+<!--  header -->
+<header class="main-header">
     <nav class="green">
         <div class="container">
             <div class="nav-wrapper">
                 <img class="scadep-logo" src="../images/partners/scadep.png">
                 <img class="brand-logo" src="../images/Sierra_Leone_Coat_Of_Arms.png">
-                <!-- <a href="#" class="hide-on-med-and-down">
-                    Agriculture Market Information System
-                </a> -->
-                <a href="#" data-target="mobile-view" class="sidenav-trigger">
-                    <i class="material-icons">menu</i>
+                <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+                    <i class="material-icons ">menu</i>
                 </a>
+
                 <ul class="right admin hide-on-med-and-down">
                     <li><a href="/">Home</a></li>
                     <li><a href="/farmers">Farmers</a></li>
@@ -19,16 +18,35 @@
                     <li><a href="/about">About Us</a></li>
                     <li><a href="/admin">admin</a></li>
                 </ul>
-
+            
+                <!-- mobile navigations -->
+                <ul class="sidenav" id="mobile-nav">
+                    <img src="/images/Sierra_Leone_Coat_Of_Arms.png" style="margin-top: -30px; margin-bottom: 10px;" alt="">
+                    <h6 class="green-text text-darken-4 center">Agriculture Market Information System</h6>
+                    <div class="divider"></div>
+                    <li><a href="/" class="green-text">Home</a></li>
+                    <li><a href="/farmers">Farmers</a></li>
+                    <li><a href="/prices">Price Information</a></li>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/admin">admin</a></li>
+                </ul>
             </div>
+            
         </div>
-        <ul class="sidenav" id="mobile-view">
-            <li><a href="/">Home</a></li>
+    </nav>
+    <div class="container">
+        <!-- mobile navigations -->
+        <ul class="sidenav" id="mobile-nav">
+            <img src="/images/Sierra_Leone_Coat_Of_Arms.png" style="margin-top: -30px; margin-bottom: 10px;" alt="">
+            <h6 class="green-text text-darken-4 center">Agriculture Market Information System</h6>
+            <div class="divider"></div>
+            <li><a href="/" class="green-text">Home</a></li>
             <li><a href="/farmers">Farmers</a></li>
             <li><a href="/prices">Price Information</a></li>
             <li><a href="/products">Products</a></li>
             <li><a href="/about">About Us</a></li>
             <li><a href="/admin">admin</a></li>
         </ul>
-    </nav>
+    </div>
 </header>

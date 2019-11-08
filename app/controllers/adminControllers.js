@@ -1531,13 +1531,14 @@ module.exports = {
 
         // fetching the about content from the about model
         aboutModel.find()
-            .then(fetchedAbout => {
-                res.render('partials/admin/forms/aboutForm', {
-                    pageTitle: "about-page",
-                    pageID: "about-page",
-                    fetchedAbout: fetchedAbout,
-                    adminUser: req.user
-                });
+            .then(data => {
+                console.log(data);
+                // res.render('partials/admin/forms/aboutForm', {
+                //     pageTitle: "about-page",
+                //     pageID: "about-page",
+                //     fetchedAbout: data,
+                //     adminUser: req.user
+                // });
             })
             .catch(err => {
                 console.log(err);
@@ -1596,7 +1597,7 @@ module.exports = {
             aboutModel.findById(id)
                 .then(about => {
                     about.title = req.body.about_heading,
-                        about.content = req.body.about_content
+                    about.content = req.body.about_content
 
                     // saving the data
                     about.save()
