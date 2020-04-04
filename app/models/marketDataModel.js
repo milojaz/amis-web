@@ -1,58 +1,76 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema
 
-var marketSchema = mongoose.Schema({
-    locality:  {
+var marketSchema = new Schema({
+    mktLocality: {
         type: String,
         required: true
     },
-    chiefdom:  {
+    mktChiefdom: {
         type: String
     },
-    district:  {
+    mktDistrict: {
+        type: String,
+    },
+    mktRegion: {
+        type: String,
+    },
+    marketPlace: {
+        type: String,
+    },
+    marketType: {
+        type: String,
+    },
+    mktEnumerator: {
         type: String,
         required: true
     },
-    product:  {
+    productCategory: {
+        type: String
+    },
+    mktProductName: {
         type: String,
+    },
+    WHS_Unit: {
+        type: String,
+    },
+    WHS_Weight: {
+        type: Number,
         required: true
     },
-    region:  {
-        type: String,
+    WHS_Price: {
+        type: Number,
         required: true
     },
-    enumerator:  {
+    RET_Unit: {
         type: String,
+    },
+    RET_Weight: {
+        type: Number,
         required: true
     },
-    date:  {
+    RET_Price: {
+        type: Number,
+        required: true
+    },
+    FG_Unit: {
+        type: String,
+    },
+    FG_Weight: {
+        type: Number,
+        required: true
+    },
+    FG_Price: {
+        type: Number,
+        required: true
+    },
+    date: {
         type: Date,
         default: Date.now()
     },
-    wholesale_unit:  {
-        type: String,
-        required: true
-    },
-    wholesale_weight:  {
-        type: String,
-        required: true
-    },
-    wholesale_price: {
-        type: String,
-        required: true
-    },
-    retail_unit:  {
-        type: String,
-        required: true
-    },
-    retail_weight : {
-        type: String,
-        required: true
-    },
-    retail_price: {
-        type: String,
-        required: true
-    }
-    
+
+
 });
 
-module.exports =  mongoose.model('marketData', marketSchema);
+var MarketData = mongoose.model('MarketData', marketSchema);
+module.exports = MarketData

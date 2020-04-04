@@ -1,38 +1,37 @@
 var mongoose = require('mongoose');
 
 var exportFlowSchema = mongoose.Schema({
-    name:  {
+    name: {
         type: String,
         required: true
     },
-    email:  {
+    email: {
         type: String
     },
-    address:  {
+    address: {
         type: String,
         required: true
     },
-    phone:  {
+    phone: {
         type: String,
         required: true
     },
-    products:  {
+    products: {
         type: String,
         required: true
     },
-    weight:  {
-        type: String,
+    weight: {
+        type: Number,
         required: true
     },
-    quantity:  {
-        type: String,
+    tonage: {
+        type: Number,
         required: true
     },
-    price:  {
-        type: String,
-        required: true
+    value: {
+        type: Number,
     },
-    district:  {
+    district: {
         type: String,
         required: true
     },
@@ -40,11 +39,11 @@ var exportFlowSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    countryFROM:  {
+    districtFrom: {
         type: String,
         required: true
     },
-    countryTO : {
+    countryTO: {
         type: String,
         required: true
     },
@@ -52,7 +51,7 @@ var exportFlowSchema = mongoose.Schema({
         type: Date,
         default: Date.now()
     }
-    
+
 });
 
-module.exports =  mongoose.model('exportFlowData', exportFlowSchema);
+module.exports = mongoose.model('exportFlowData', exportFlowSchema);

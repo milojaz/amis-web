@@ -1,88 +1,121 @@
 <% include ../admin-head %>
 
-<body class="theme-green">
-    <!-- Page Loader -->
-    <% include ../admin-page-loader %>
-    <!-- #END# Page Loader -->
-    <!-- Overlay For Sidebars -->
-    <div class="overlay"></div>
-    <!-- #END# Overlay For Sidebars -->
-    <!-- Top Bar -->
-    <% include ../top-nav %>
-    <!-- #Top Bar -->
-    <section>
-        <!-- Left Sidebar -->
-        <% include ../admin-left-sidebar %>
-        <!-- #END# Left Sidebar -->
-        <!-- Right Sidebar -->
-        <% include ../admin-right-sidebar %>
-        <!-- #END# Right Sidebar -->
-    </section>
+    <body class="theme-green">
+        <!-- Page Loader -->
+        <% include ../admin-page-loader %>
+            <!-- #END# Page Loader -->
+            <!-- Overlay For Sidebars -->
+            <div class="overlay"></div>
+            <!-- #END# Overlay For Sidebars -->
+            <!-- Top Bar -->
+            <% include ../top-nav %>
+                <!-- #Top Bar -->
+                <section>
+                    <!-- Left Sidebar -->
+                    <% include ../admin-left-sidebar %>
+                        <!-- #END# Left Sidebar -->
+                        <!-- Right Sidebar -->
+                        <% include ../admin-right-sidebar %>
+                            <!-- #END# Right Sidebar -->
+                </section>
 
-    <section class="content">
-        <div class="container-fluid">
-            <div class="block-header">
-                <h2>TRADE FLOW DATA TABLE</h2>
-            </div>
-            <!-- Exportable Table -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                Showing all the trade flow data received
-                            </h2>
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="block-header">
+                            <h2>TRADE FLOW DATA TABLE</h2>
                         </div>
-                        <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover" id="tradeFlowTableBody">
-                                    <thead>
-                                        <tr>
-                                            <th>Commodity</th>
-                                            <th>Tonage</th>
-                                            <th>Value</th>
-                                            <th>Enumerator</th>
-                                            <th>Date</th>
-                                            <th>District From</th>
-                                            <th>Chiefdom From</th>
-                                            <th>District To</th>
-                                            <th>Chiefdom To</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Commodity</th>
-                                            <th>Tonage</th>
-                                            <th>Value</th>
-                                            <th>Enumerator</th>
-                                            <th>Date</th>
-                                            <th>District From</th>
-                                            <th>Chiefdom From</th>
-                                            <th>District To</th>
-                                            <th>Chiefdom To</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <!-- <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr> -->
-                                    </tbody>
-                                </table>
+                        <!-- Exportable Table -->
+                        <div class="row clearfix">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="card">
+                                    <div class="header">
+                                        <h2>
+                                            Showing all the trade flow data received
+                                        </h2>
+                                    </div>
+                                    <div class="body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="tradeFlowTableBody">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Commodity</th>
+                                                        <th>Tonage</th>
+                                                        <th>Value</th>
+                                                        <th>Enumerator</th>
+                                                        <th>Locality From</th>
+                                                        <th>Chiefdom From</th>
+                                                        <th>District From</th>
+                                                        <th>Locality To</th>
+                                                        <th>Chiefdom To</th>
+                                                        <th>District To</th>
+                                                        <th>Date</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>Commodity</th>
+                                                        <th>Tonage</th>
+                                                        <th>Value</th>
+                                                        <th>Enumerator</th>
+                                                        <th>Locality From</th>
+                                                        <th>Chiefdom From</th>
+                                                        <th>District From</th>
+                                                        <th>Locality To</th>
+                                                        <th>Chiefdom To</th>
+                                                        <th>District To</th>
+                                                        <th>Date</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody>
+                                                    <% tradeData.forEach(trade => {%>
+                                                        <tr>
+                                                            <td>
+                                                                <%= trade.product %>
+                                                            </td>
+                                                            <td>
+                                                                <%= trade.tonage %>
+                                                            </td>
+                                                            <td>
+                                                                <%= trade.value %>
+                                                            </td>
+                                                            <td>
+                                                                <%= trade.enumerator %>
+                                                            </td>
+                                                            <td>
+                                                                <%= trade.locality_from %>
+                                                            </td>
+                                                            <td>
+                                                                <%= trade.chiefdom_from %>
+                                                            </td>
+                                                            <td>
+                                                                <%= trade.district_from %>
+                                                            </td>
+                                                            <td>
+                                                                <%= trade.locality_to %>
+                                                            </td>
+                                                            <td>
+                                                                <%= trade.chiefdom_to%>
+                                                            </td>
+                                                            <td>
+                                                                <%= trade.district_to%>
+                                                            </td>
+                                                            <td>
+                                                                <%= trade.date %>
+                                                            </td>
+                                                        </tr>
+                                                        <% }); %>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <!-- #END# Exportable Table -->
                     </div>
-                </div>
-            </div>
-            <!-- #END# Exportable Table -->
-        </div>
-    </section>
+                </section>
 
-    <% include ../admin-jslinks.ejs %>
-</body>
+                <% include ../admin-jslinks.ejs %>
+    </body>
 
-</html>
+    </html>

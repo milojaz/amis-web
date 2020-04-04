@@ -75,19 +75,21 @@ router.route('/')
             successRedirect: '/admin/dashboard',
             failureRedirect: '/admin',
             failureFlash: true
-            // successFlash: true,
-            // session: true
-            // , adminController.postLogin
+                // successFlash: true,
+                // session: true
+                // , adminController.postLogin
         }));
+
+//$$$$$$$$$$$$ FROM BELOW ADD ISUSERAUTHENTICATED, $$$$$$$$$
 
 // admin registration request
 router.route('/register/admin')
-    .get(isUserAuthenticated, adminController.adminRegFormGet)
-    .post(isUserAuthenticated, adminController.adminRegFormPost);
+    .get(adminController.adminRegFormGet)
+    .post(adminController.adminRegFormPost);
 
 // admin homepage route
 router.route('/dashboard')
-    .get(isUserAuthenticated, adminController.getDashboard);
+    .get(adminController.getDashboard);
 
 // admin create posts route
 router.route('/logout')
@@ -95,114 +97,114 @@ router.route('/logout')
 
 // admin marketDataTable route
 router.route('/market')
-    .get(isUserAuthenticated, adminController.getMarketDataTable); // isUserAuthenticated, 
+    .get(adminController.getMarketDataTable); // 
 
 // export flow route
 router.route('/exportFlow')
-    .get(isUserAuthenticated, adminController.exportFlowGet);
+    .get(adminController.exportFlowGet);
 
 // admin tradeFlowDataTable route
 router.route('/tradeFlow')
-    .get(isUserAuthenticated, adminController.getTradeFlowDataTable); // isUserAuthenticated, 
+    .get(adminController.getTradeFlowDataTable); // 
 
 // admin stockLevelDataTable route
 router.route('/stockLevel')
-    .get(isUserAuthenticated, adminController.getStockLevelDataTable);
+    .get(adminController.getStockLevelDataTable);
 
 // enumerator registration route
 router.route('/register/enumerator')
-    .get(isUserAuthenticated, adminController.enumeratorRegFormGet)
-    .post(isUserAuthenticated, adminController.enumeratorRegFormPost);
+    .get(adminController.enumeratorRegFormGet)
+    .post(adminController.enumeratorRegFormPost);
 
 // enumerator get router
 router.route('/records/enumerators')
-    .get(isUserAuthenticated, adminController.enumeratorsRecordsGet);
+    .get(adminController.enumeratorsRecordsGet);
 
 // enumerator delete route
 router.route('/records/enumerators/:id')
-    .get(isUserAuthenticated, adminController.enumeratorsRecordsDelete);
+    .get(adminController.enumeratorsRecordsDelete);
 
 // enumerator edit routes
 router.route('/records/enumerator/edit/:id')
-    .get(isUserAuthenticated, adminController.enumeratorEditRecordGet)
-    .post(isUserAuthenticated, adminController.enumeratorUpdateRecordPost);
+    .get(adminController.enumeratorEditRecordGet)
+    .post(adminController.enumeratorUpdateRecordPost);
 
 // farmer registration route
 router.route('/register/farmer')
-    .get(isUserAuthenticated, adminController.farmerRegFormGet)
-    .post(isUserAuthenticated, adminController.farmerRegFormPost);
+    .get(adminController.farmerRegFormGet)
+    .post(adminController.farmerRegFormPost);
 
 // creat market data route
 router.route('/createMarketData')
-    .get(isUserAuthenticated, adminController.marketDataGet) // isUserAuthenticated, 
+    .get(adminController.marketDataGet) // 
 
 // wholesale post routess
 router.route('/create_wholesale')
-    .post(isUserAuthenticated, adminController.wholesaleDataPost);
+    .post(adminController.wholesaleDataPost);
 
 // retail post routess
 router.route('/create_retail')
-    .post(isUserAuthenticated, adminController.retailDataPost);
+    .post(adminController.retailDataPost);
 
 // farmgate post routess
 router.route('/create_farm_gate')
-    .post(isUserAuthenticated, adminController.farmGateDataPost);
+    .post(adminController.farmGateDataPost);
 
 // creat farmer data route
 // router.route('/farmerDisData')
-//     .get(isUserAuthenticated, adminController.farmerDisDataGet) // isUserAuthenticated, 
-//     .post(isUserAuthenticated, adminController.farmerDisDataPost);
+//     .get(adminController.farmerDisDataGet) // 
+//     .post(adminController.farmerDisDataPost);
 
 // post request product view route
 router.route('/post/new/product')
-    .get(isUserAuthenticated, adminController.availableProductFormGet);
+    .get(adminController.availableProductFormGet);
 
 // post request product by district data route
 router.route('/post/new/product/district')
-    .post(isUserAuthenticated, adminController.availableProductByDistFormPost);
+    .post(adminController.availableProductByDistFormPost);
 
 // post request available-for-sale product by district data route
 router.route('/post/new/product/available')
-    .post(isUserAuthenticated, adminController.availableProductForSaleFormPost);
+    .post(adminController.availableProductForSaleFormPost);
 
 // delete an order route
 router.route('/order/delete/:id')
-    .get(isUserAuthenticated, adminController.deleteOrder);
+    .get(adminController.deleteOrder);
 
 // fbo get router
 router.route('/records/fbos')
-    .get(isUserAuthenticated, adminController.fbosRecordsGet);
+    .get(adminController.fbosRecordsGet);
 
 // fbo delete route
 router.route('/records/fbos/:id')
-    .get(isUserAuthenticated, adminController.fbosRecordsDelete);
+    .get(adminController.fbosRecordsDelete);
 
 // fbo edit route
 router.route('/fbo/record/edit/:id')
-    .get(isUserAuthenticated, adminController.fbosRecordEditGet)
-    .put(isUserAuthenticated, adminController.fboUpdateRecordPost);
+    .get(adminController.fbosRecordEditGet)
+    .put(adminController.fboUpdateRecordPost);
 
 // about get and post routes
 router.route('/about')
-    .get(isUserAuthenticated, adminController.aboutGet);
+    .get(adminController.aboutGet);
 
 // about edit post and get routes
 router.route('/about/edit/:id')
-    .get(isUserAuthenticated, adminController.aboutEditGet)
-    .post(isUserAuthenticated, adminController.aboutEditPost);
+    .get(adminController.aboutEditGet)
+    .post(adminController.aboutEditPost);
 
 // learning routes
 router.route('/learning-info')
-    .get(isUserAuthenticated, adminController.learningGet)
-    .post(isUserAuthenticated, adminController.learningPost);
+    .get(adminController.learningGet)
+    .post(adminController.learningPost);
 
 // learning delete route
 router.route('/learning-info/delete/:id')
-    .get(isUserAuthenticated, adminController.learningDelete);
+    .get(adminController.learningDelete);
 
 // learning edit get route
 router.route('/learning-info/edit/:id')
-    .get(isUserAuthenticated, adminController.learningEditRecordGet)
-    .post(isUserAuthenticated, adminController.learningUpdateRecordPost);
+    .get(adminController.learningEditRecordGet)
+    .post(adminController.learningUpdateRecordPost);
 
 module.exports = router;

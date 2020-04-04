@@ -34,20 +34,18 @@ firebase.initializeApp({
 
 //connecting to mongodb
 // OFFLINE CONNECTION
-// mongoose.connect("mongodb://localhost/amisapp", {
-//         useNewUrlParser: true
-//     })
-//     .then(() => console.log("MongoDB Local Connection Successful"))
-//     .catch(err => console.log(err));
+mongoose.connect('mongodb://localhost/amisapp', { useNewUrlParser: true })
+    .then(() => console.log('Database Local Connection Successful'))
+    .catch(err => console.log(err))
 
 // ONLINE CONNECTION TO MONGO ' + process.env.MONGO_ADMIN_PW + '
-MONGO_URI = 'mongodb+srv://milojus:nauhzYBZpvigh8Vk@amismaf-cluster-udfcn.mongodb.net/test?retryWrites=true&w=majority'
-mongoose.connect(MONGO_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    })
-    .then(() => console.log('MongoDB Online Connection Successful'))
-    .catch(err => console.log(err));
+// MONGO_URI = 'mongodb+srv://milojus:nauhzYBZpvigh8Vk@amismaf-cluster-udfcn.mongodb.net/test?retryWrites=true&w=majority'
+// mongoose.connect(MONGO_URI, {
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true
+//     })
+//     .then(() => console.log('MongoDB Online Connection Successful'))
+//     .catch(err => console.log(err));
 
 // getting access to the database
 var db = firebase.database();
@@ -97,7 +95,7 @@ app.use(passport.session());
 app.use(flash());
 
 // Flash Middleware Global Variables
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
     res.locals.success_msg = req.flash("success_msg");
     res.locals.error_msg = req.flash("error_msg");
     res.locals.error = req.flash("error");
@@ -116,7 +114,7 @@ app.use((req, res, next) => {
 // app.use(expressValidator());
 app.use(
     expressValidator({
-        errorFormatter: function (param, msg, value) {
+        errorFormatter: function(param, msg, value) {
             var namespace = param.split("."),
                 root = namespace.shift(),
                 formParam = root;
@@ -149,6 +147,6 @@ app.use("/", defaultRoutes);
 app.use("/admin", adminRoutes);
 
 //listening to the 3000 port
-var server = app.listen(app.get("port"), function () {
+var server = app.listen(app.get("port"), function() {
     console.log("listening on port " + app.get("port"));
 });
