@@ -69,8 +69,8 @@ const adminController = require('../controllers/adminControllers');
 
 // admin get request
 router.route('/')
-    .get(adminController.index)
-    .post( // authenticating the user
+    .get(isUserAuthenticated, adminController.index)
+    .post( // authenticating the userisUserAuthenticated,
         passport.authenticate('local', {
             successRedirect: '/admin/dashboard',
             failureRedirect: '/admin',
@@ -84,12 +84,12 @@ router.route('/')
 
 // admin registration request
 router.route('/register/admin')
-    .get(adminController.adminRegFormGet)
-    .post(adminController.adminRegFormPost);
+    .get(isUserAuthenticated, adminController.adminRegFormGet)
+    .post(isUserAuthenticated, adminController.adminRegFormPost);
 
 // admin homepage route
 router.route('/dashboard')
-    .get(adminController.getDashboard);
+    .get(isUserAuthenticated, adminController.getDashboard);
 
 // admin create posts route
 router.route('/logout')
@@ -97,24 +97,24 @@ router.route('/logout')
 
 // admin marketDataTable route
 router.route('/market')
-    .get(adminController.getMarketDataTable); // 
+    .get(isUserAuthenticated, adminController.getMarketDataTable); // 
 
 // export flow route
 router.route('/exportFlow')
-    .get(adminController.exportFlowGet);
+    .get(isUserAuthenticated, adminController.exportFlowGet);
 
 // admin tradeFlowDataTable route
 router.route('/tradeFlow')
-    .get(adminController.getTradeFlowDataTable); // 
+    .get(isUserAuthenticated, adminController.getTradeFlowDataTable); // 
 
 // admin stockLevelDataTable route
 router.route('/stockLevel')
-    .get(adminController.getStockLevelDataTable);
+    .get(isUserAuthenticated, adminController.getStockLevelDataTable);
 
 // enumerator registration route
 router.route('/register/enumerator')
-    .get(adminController.enumeratorRegFormGet)
-    .post(adminController.enumeratorRegFormPost);
+    .get(isUserAuthenticated, adminController.enumeratorRegFormGet)
+    .post(isUserAuthenticated, adminController.enumeratorRegFormPost);
 
 // enumerator get router
 router.route('/records/enumerators')

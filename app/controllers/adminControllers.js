@@ -210,7 +210,8 @@ module.exports = {
     // dashboard vie controller
     getMarketDataTable: (req, res) => {
         productMarketModel.find().sort({ '_id': -1 })
-            .then(marketData => {
+
+        .then(marketData => {
                 res.render('partials/admin/tables/marketDataTable', { adminUser: req.user, marketData: marketData });
             })
             .catch(err => {
