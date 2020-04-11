@@ -23,6 +23,7 @@ var farmersData = require('../data/farmers_data.json');
 var exportFlowModel = require('../models/exportFlowModel');
 var tradeFlowModel = require('../models/tradeFlowModel')
 var productMarketModel = require('../models/marketDataModel')
+var stockFlowModel = require('../models/stockFlowModel')
 
 //import farmer Api by district
 
@@ -219,7 +220,7 @@ module.exports = {
             });
     },
 
-    // tradeflow get controller
+    // stockflow get controller
     getTradeFlowDataTable: (req, res) => {
         // res.render('partials/admin/tables/tradeFlowDataTable', { adminUser: req.user });
         tradeFlowModel.find().sort({ '_id': -1 })
@@ -233,7 +234,14 @@ module.exports = {
 
     // Stock Level get controller
     getStockLevelDataTable: (req, res) => {
-        res.render('partials/admin/tables/stockLevelDataTable', { adminUser: req.user });
+        stockFlowModel.find().sort({ '_id': -1 })
+            .then(stockData => {
+                res.render('partials/admin/tables/stockLevelDataTable', { adminUser: req.user, stockData: stockData });
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        // res.render('partials/admin/tables/stockLevelDataTable', { adminUser: req.user });
     },
 
     // enumerator get  controller

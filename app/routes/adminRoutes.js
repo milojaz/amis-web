@@ -69,8 +69,8 @@ const adminController = require('../controllers/adminControllers');
 
 // admin get request
 router.route('/')
-    .get(isUserAuthenticated, adminController.index)
-    .post( // authenticating the userisUserAuthenticated,
+    .get(adminController.index)
+    .post( // authenticating the user
         passport.authenticate('local', {
             successRedirect: '/admin/dashboard',
             failureRedirect: '/admin',
@@ -80,16 +80,16 @@ router.route('/')
                 // , adminController.postLogin
         }));
 
-//$$$$$$$$$$$$ FROM BELOW ADD ISUSERAUTHENTICATED, $$$$$$$$$
+//$$$$$$$$$$$$ FROM BELOW ADD  $$$$$$$$$
 
 // admin registration request
 router.route('/register/admin')
-    .get(isUserAuthenticated, adminController.adminRegFormGet)
-    .post(isUserAuthenticated, adminController.adminRegFormPost);
+    .get(adminController.adminRegFormGet)
+    .post(adminController.adminRegFormPost);
 
 // admin homepage route
 router.route('/dashboard')
-    .get(isUserAuthenticated, adminController.getDashboard);
+    .get(adminController.getDashboard);
 
 // admin create posts route
 router.route('/logout')
@@ -97,24 +97,24 @@ router.route('/logout')
 
 // admin marketDataTable route
 router.route('/market')
-    .get(isUserAuthenticated, adminController.getMarketDataTable); // 
+    .get(adminController.getMarketDataTable); // 
 
 // export flow route
 router.route('/exportFlow')
-    .get(isUserAuthenticated, adminController.exportFlowGet);
+    .get(adminController.exportFlowGet);
 
 // admin tradeFlowDataTable route
 router.route('/tradeFlow')
-    .get(isUserAuthenticated, adminController.getTradeFlowDataTable); // 
+    .get(adminController.getTradeFlowDataTable); // 
 
 // admin stockLevelDataTable route
 router.route('/stockLevel')
-    .get(isUserAuthenticated, adminController.getStockLevelDataTable);
+    .get(adminController.getStockLevelDataTable);
 
 // enumerator registration route
 router.route('/register/enumerator')
-    .get(isUserAuthenticated, adminController.enumeratorRegFormGet)
-    .post(isUserAuthenticated, adminController.enumeratorRegFormPost);
+    .get(adminController.enumeratorRegFormGet)
+    .post(adminController.enumeratorRegFormPost);
 
 // enumerator get router
 router.route('/records/enumerators')

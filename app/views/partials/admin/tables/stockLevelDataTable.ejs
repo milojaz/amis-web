@@ -44,12 +44,11 @@
                                                         <th>District</th>
                                                         <th>Market(Place)</th>
                                                         <th>Market Locality</th>
-                                                        <th>Commodity Category</th>
-                                                        <th>Commodity</th>
-                                                        <th>Market Type</th>
-                                                        <th>Market Price</th>
-                                                        <th>Quantity(Weight)</th>
-                                                        <th>Quantity(Store)</th>
+                                                        <th>Market</th>
+                                                        <th>Product Category</th>
+                                                        <th>Products</th>
+                                                        <th>Quantity (Store)</th>
+                                                        <th>Quantity Unit</th>
                                                         <th>Quantity(Sold)</th>
                                                         <th>Stock Level</th>
                                                         <th>Destination</th>
@@ -69,12 +68,11 @@
                                                         <th>District</th>
                                                         <th>Market(Place)</th>
                                                         <th>Market Locality</th>
-                                                        <th>Commodity Category</th>
-                                                        <th>Commodity</th>
-                                                        <th>Market Type</th>
-                                                        <th>Market Price</th>
-                                                        <th>Quantity(Weight)</th>
-                                                        <th>Quantity(Store)</th>
+                                                        <th>Market</th>
+                                                        <th>Product Category</th>
+                                                        <th>Products</th>
+                                                        <th>Quantity (Store)</th>
+                                                        <th>Quantity Unit</th>
                                                         <th>Quantity(Sold)</th>
                                                         <th>Stock Level</th>
                                                         <th>Destination</th>
@@ -90,6 +88,70 @@
                                                     </tr>
                                                 </tfoot>
                                                 <tbody>
+                                                    <% stockData.forEach(stock => {%>
+                                                        <tr>
+                                                            <td>
+                                                                <%=stock.ttmDistrict %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.marketPlaceArr %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.ttmMarket %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.msuProductCategory %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.productsArr %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.market_type %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.quantityStore %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.quantityUnit %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.quantitySold %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.stockLevel %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.stockDestination %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.grandTotal %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.rent %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.transportCost %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.electricity%>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.securityOwn %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.securityMarketOwn %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.fumigation %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.chemicalTreatment %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.averageCost %>
+                                                            </td>
+                                                        </tr>
+                                                        <% }); %>
                                                 </tbody>
                                             </table>
                                         </div>
