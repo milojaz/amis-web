@@ -6,7 +6,7 @@ var stockFlowSchema = new Schema({
     ttmDistrict: {
         type: String,
     },
-    marketPlaceArr: {
+    marketPlace: {
         type: String
     },
     ttmMarket: {
@@ -15,7 +15,7 @@ var stockFlowSchema = new Schema({
     msuProductCategory: {
         type: String,
     },
-    productsArr: {
+    products: {
         type: String,
     },
     market_type: {
