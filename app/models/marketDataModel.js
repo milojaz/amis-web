@@ -25,7 +25,7 @@ var marketSchema = new Schema({
         type: String,
         required: true
     },
-    productCategory: {
+    mktProductCategory: {
         type: String
     },
     mktProductName: {
@@ -36,33 +36,27 @@ var marketSchema = new Schema({
     },
     WHS_Weight: {
         type: Number,
-        required: true
     },
     WHS_Price: {
         type: Number,
-        required: true
     },
     RET_Unit: {
         type: String,
     },
     RET_Weight: {
         type: Number,
-        required: true
     },
     RET_Price: {
         type: Number,
-        required: true
     },
     FG_Unit: {
         type: String,
     },
     FG_Weight: {
         type: Number,
-        required: true
     },
     FG_Price: {
         type: Number,
-        required: true
     },
     date: {
         type: Date,
