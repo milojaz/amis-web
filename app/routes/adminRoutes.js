@@ -16,57 +16,6 @@ router.use(cors());
 // controllers
 const adminController = require('../controllers/adminControllers');
 
-// models
-// var adminModel = require('../models/admin_model');
-
-// passport middleware
-// var passport = require('passport');
-// var LocalStrategy = require('passport-local').Strategy;
-
-// passport.use(new LocalStrategy({
-//     usernameField: 'email',
-//     passReqToCallback: true
-// }, (req, email, password, done) => {
-//     adminModel.findOne({
-//             email: email
-//         })
-//         .then(adminUser => {
-//             // if user not exist
-//             if (!adminUser) {
-//                 return done(null, false, req.flash('error_msg', 'Email not found'));
-//             }
-
-//             // if their is a user
-//             bcrypt.compare(password, adminUser.password, (err, isMatch) => {
-//                 if (err) {
-//                     return err
-//                 }
-
-//                 // if password not match
-//                 if (!isMatch) {
-//                     return done(null, false, req.flash('error_msg', 'Invalid username or Password'));
-//                 }
-
-//                 // if the is found and valid
-//                 return done(null, adminUser, req.flash('success_msg', 'Login Successful'));
-//             });
-
-//         })
-//         .catch(err => {
-//             console.log(err);
-//         });
-// }));
-
-// passport.serializeUser((adminUser, done) => {
-//     done(null, adminUser.id);
-// });
-
-// passport.deserializeUser((id, done) => {
-//     adminModel.findById(id, function(err, adminUser) {
-//         done(err, adminUser);
-//     });
-// });
-
 // admin get request
 router.route('/')
     .get(adminController.index)
@@ -75,10 +24,12 @@ router.route('/')
             successRedirect: '/admin/dashboard',
             failureRedirect: '/admin',
             failureFlash: true
-            // successFlash: true,
-            // session: true
-            // , adminController.postLogin
+                // successFlash: true,
+                // session: true
+                // , adminController.postLogin
         }));
+
+//$$$$$$$$$$$$ FROM BELOW ADD  $$$$$$$$$
 
 // admin registration request
 router.route('/register/admin')
@@ -91,11 +42,11 @@ router.route('/dashboard')
 
 // admin create posts route
 router.route('/logout')
-    .get(adminController.getLogout);
+    .get(isUserAuthenticated, adminController.getLogout);
 
 // admin marketDataTable route
 router.route('/market')
-    .get(isUserAuthenticated, adminController.getMarketDataTable); // isUserAuthenticated, 
+    .get(isUserAuthenticated, adminController.getMarketDataTable); // 
 
 // export flow route
 router.route('/exportFlow')
@@ -103,7 +54,7 @@ router.route('/exportFlow')
 
 // admin tradeFlowDataTable route
 router.route('/tradeFlow')
-    .get(isUserAuthenticated, adminController.getTradeFlowDataTable); // isUserAuthenticated, 
+    .get(isUserAuthenticated, adminController.getTradeFlowDataTable); // 
 
 // admin stockLevelDataTable route
 router.route('/stockLevel')
@@ -134,7 +85,7 @@ router.route('/register/farmer')
 
 // creat market data route
 router.route('/createMarketData')
-    .get(isUserAuthenticated, adminController.marketDataGet) // isUserAuthenticated, 
+    .get(isUserAuthenticated, adminController.marketDataGet) // 
 
 // wholesale post routess
 router.route('/create_wholesale')
@@ -150,8 +101,8 @@ router.route('/create_farm_gate')
 
 // creat farmer data route
 // router.route('/farmerDisData')
-//     .get(isUserAuthenticated, adminController.farmerDisDataGet) // isUserAuthenticated, 
-//     .post(isUserAuthenticated, adminController.farmerDisDataPost);
+//     .get(adminController.farmerDisDataGet) // 
+//     .post(adminController.farmerDisDataPost);
 
 // post request product view route
 router.route('/post/new/product')
@@ -184,7 +135,8 @@ router.route('/fbo/record/edit/:id')
 
 // about get and post routes
 router.route('/about')
-    .get(isUserAuthenticated, adminController.aboutGet);
+    .get(isUserAuthenticated, adminController.aboutGet)
+    .post(isUserAuthenticated, adminController.aboutPost)
 
 // about edit post and get routes
 router.route('/about/edit/:id')

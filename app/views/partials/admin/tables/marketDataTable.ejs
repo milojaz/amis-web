@@ -19,53 +19,133 @@
                             <!-- #END# Right Sidebar -->
                 </section>
 
+
                 <section class="content">
                     <div class="container-fluid">
                         <div class="block-header">
                             <h2>MARKET DATA TABLE</h2>
                         </div>
-                        <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover " id="marketTableBody"> <!-- dataTable js-exportable -->
-                                    <thead>
-                                        <tr>
-                                            <th>Locality</th>
-                                            <th>District</th>
-                                            <th>Product</th>
-                                            <th>Enumerator</th>
-                                            <th>Date</th>
-                                            <th>Unit</th>
-                                            <th>Wholesale Price</th>
-                                            <th>Unit</th>
-                                            <th>Retail Price</th>
-                                            <th>Unit</th>
-                                            <th>farmgate Price</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                             <th>Locality</th>
-                                            <th>District</th>
-                                            <th>Product</th>
-                                            <th>Enumerator</th>
-                                            <th>Date</th>
-                                            <th>Unit</th>
-                                            <th>Wholesale Price</th>
-                                            <th>Unit</th>
-                                            <th>Retail Price</th>
-                                            <th>Unit</th>
-                                            <th>farmgate Price</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <!-- <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr> -->
+                        <!-- Exportable Table -->
+                        <div class="row clearfix">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="card">
+                                    <div class="header">
+                                        <h2>
+                                            Showing all the trade flow data received
+                                        </h2>
+                                    </div>
+                                    <div class="body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                                <!-- dataTable js-exportable -->
+                                                <thead>
+                                                    <tr>
+                                                        <th>Locality</th>
+                                                        <th>Chiefdom</th>
+                                                        <th>District</th>
+                                                        <th>Region</th>
+                                                        <th>Market Place</th>
+                                                        <th>Market Type</th>
+                                                        <th>Enumerator</th>
+                                                        <th>Product Category</th>
+                                                        <th>Product</th>
+                                                        <th>Wholesale Unit</th>
+                                                        <th>Wholesale Weight</th>
+                                                        <th>Wholesale Price</th>
+                                                        <th>Retail Unit</th>
+                                                        <th>Retail Weight</th>
+                                                        <th>Retail Price</th>
+                                                        <th>Farmgate Unit</th>
+                                                        <th>Farmgate Weight</th>
+                                                        <th>Farmgate Price</th>
+                                                        <th>Date</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>Locality</th>
+                                                        <th>Chiefdom</th>
+                                                        <th>District</th>
+                                                        <th>Region</th>
+                                                        <th>Market Place</th>
+                                                        <th>Market Type</th>
+                                                        <th>Enumerator</th>
+                                                        <th>Product Category</th>
+                                                        <th>Product</th>
+                                                        <th>Wholesale Unit</th>
+                                                        <th>Wholesale Weight</th>
+                                                        <th>Wholesale Price</th>
+                                                        <th>Retail Unit</th>
+                                                        <th>Retail Weight</th>
+                                                        <th>Retail Price</th>
+                                                        <th>Farmgate Unit</th>
+                                                        <th>Farmgate Weight</th>
+                                                        <th>Farmgate Price</th>
+                                                        <th>Date</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody>
+                                                    <% marketData.forEach(market => {%>
+                                                        <tr>
+                                                            <td>
+                                                                <%= market.mktLocality %>
+                                                            </td>
+                                                            <td>
+                                                                <%= market.mktChiefdom %>
+                                                            </td>
+                                                            <td>
+                                                                <%= market.mktDistrict %>
+                                                            </td>
+                                                            <td>
+                                                                <%= market.mktRegion %>
+                                                            </td>
+                                                            <td>
+                                                                <%= market.marketPlace %>
+                                                            </td>
+                                                            <td>
+                                                                <%= market.marketType %>
+                                                            </td>
+                                                            <td>
+                                                                <%= market.mktEnumerator %>
+                                                            </td>
+                                                            <td>
+                                                                <%= market.mktProductCategory %>
+                                                            </td>
+                                                            <td>
+                                                                <%= market.mktProductName %>
+                                                            </td>
+                                                            <td>
+                                                                <%= market.WHS_Unit %>
+                                                            </td>
+                                                            <td>
+                                                                <%= market.WHS_Weight%>
+                                                            </td>
+                                                            <td>
+                                                                <%= market.WHS_Price%>
+                                                            </td>
+                                                            <td>
+                                                                <%= market.RET_Unit%>
+                                                            </td>
+                                                            <td>
+                                                                <%= market.RET_Weight%>
+                                                            </td>
+                                                            <td>
+                                                                <%= market.RET_Price%>
+                                                            </td>
+                                                            <td>
+                                                                <%= market.FG_Unit%>
+                                                            </td>
+                                                            <td>
+                                                                <%= market.FG_Weight%>
+                                                            </td>
+                                                            <td>
+                                                                <%= market.FG_Price%>
+                                                            </td>
+                                                            <td>
+                                                                <%= market.date %>
+                                                            </td>
+                                                        </tr>
+                                                        <% }); %>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -73,7 +153,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- #END# Exportable Table -->
+                        <!-- #END# marketrtable Table -->
                     </div>
                 </section>
 

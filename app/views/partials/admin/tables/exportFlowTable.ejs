@@ -1,90 +1,133 @@
 <% include ../admin-head %>
-<body class="theme-green">
-    <!-- Page Loader -->
-    <% include ../admin-page-loader %>
-    <!-- #END# Page Loader -->
-    <!-- Overlay For Sidebars -->
-    <div class="overlay"></div>
-    <!-- #END# Overlay For Sidebars -->
-    <!-- Top Bar -->
-    <% include ../top-nav %>
-    <!-- #Top Bar -->
-    <section>
-        <!-- Left Sidebar -->
-        <% include ../admin-left-sidebar %>
-        <!-- #END# Left Sidebar -->
-        <!-- Right Sidebar -->
-        <% include ../admin-right-sidebar %>
-        <!-- #END# Right Sidebar -->
-    </section>
 
-    <section class="content">
-        <div class="container-fluid">
-            <div class="block-header">
-                <h2>EXPORT FLOW DATA TABLE</h2>
-            </div>
-            <!-- Exportable Table -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                Showing all the export flow data received
-                            </h2>
+    <body class="theme-green">
+        <!-- Page Loader -->
+        <% include ../admin-page-loader %>
+            <!-- #END# Page Loader -->
+            <!-- Overlay For Sidebars -->
+            <div class="overlay"></div>
+            <!-- #END# Overlay For Sidebars -->
+            <!-- Top Bar -->
+            <% include ../top-nav %>
+                <!-- #Top Bar -->
+                <section>
+                    <!-- Left Sidebar -->
+                    <% include ../admin-left-sidebar %>
+                        <!-- #END# Left Sidebar -->
+                        <!-- Right Sidebar -->
+                        <% include ../admin-right-sidebar %>
+                            <!-- #END# Right Sidebar -->
+                </section>
+
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="block-header">
+                            <h2>EXPORT FLOW DATA TABLE</h2>
                         </div>
-                        <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover "> <!-- dataTable js-exportable -->
-                                    <thead>
-                                        <tr>
-                                            <th>NAME</th>
-                                            <th>PHONE</th>
-                                            <th>PRODUCTS</th>
-                                            <th>TONAGE</th>
-                                            <th>VALUE</th>
-                                            <th>DISTRICT FROM</th>
-                                            <th>COUNTRY TO</th>
-                                            <th>DATE</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>NAME</th>
-                                            <th>PHONE</th>
-                                            <th>PRODUCTS</th>
-                                            <th>TONAGE</th>
-                                            <th>VALUE</th>
-                                            <th>DISTRICT FROM</th>
-                                            <th>COUNTRY TO</th>
-                                            <th>DATE</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody id="expoTradeTableBody">
-                                        <!-- <% exporter.forEach(expo => {%>
-                                            <tr> -->
-                                                <!-- <th scope="row"><%= expo.index %></th> -->
-                                                <!-- <td><%= expo.name %></td>
-                                                <td><%= expo.phone %></td>
-                                                <td><%= expo.products %></td>
-                                                <td><%= expo.quantity %></td>
-                                                <td><%= expo.price %></td>
-                                                <td><%= expo.countryFROM %></td>
-                                                <td><%= expo.countryTO %></td>
-                                                <td><%= expo.date %></td>
-                                            </tr>
-                                        <%});%> -->
-                                    </tbody>
-                                </table>
+                        <!-- Exportable Table -->
+                        <div class="row clearfix">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="card">
+                                    <div class="header">
+                                        <h2>
+                                            Showing all the export flow data received
+                                        </h2>
+                                    </div>
+                                    <div class="body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                                <!-- dataTable js-exportable -->
+                                                <thead>
+                                                    <tr>
+                                                        <th>NAME</th>
+                                                        <th>EMAIL</th>
+                                                        <th>ADDRESS</th>
+                                                        <th>PHONE</th>
+                                                        <th>PRODUCTS</th>
+                                                        <th>WEIGHT</th>
+                                                        <th>TONAGE</th>
+                                                        <th>VALUE</th>
+                                                        <th>DISTRICT</th>
+                                                        <th>REGION
+                                                            <th>DISTRICT FROM </th>
+                                                            <th>COUNTRY TO</th>
+                                                            <th>DATE</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>NAME</th>
+                                                        <th>EMAIL</th>
+                                                        <th>ADDRESS</th>
+                                                        <th>PHONE</th>
+                                                        <th>PRODUCTS</th>
+                                                        <th>WEIGHT</th>
+                                                        <th>TONAGE</th>
+                                                        <th>VALUE</th>
+                                                        <th>DISTRICT</th>
+                                                        <th>REGION
+                                                            <th>DISTRICT FROM</th>
+                                                            <th>COUNTRY TO</th>
+                                                            <th>DATE</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <!--   -->
+                                                <tbody>
+                                                    <% exporter.forEach(expo => {%>
+                                                        <tr>
+                                                            <td>
+                                                                <%= expo.name %>
+                                                            </td>
+                                                            <td>
+                                                                <%= expo.email %>
+                                                            </td>
+                                                            <td>
+                                                                <%= expo.address %>
+                                                            </td>
+                                                            <td>
+                                                                <%= expo.phone %>
+                                                            </td>
+                                                            <td>
+                                                                <%= expo.products %>
+                                                            </td>
+                                                            <td>
+                                                                <%= expo.weight %>
+                                                            </td>
+                                                            <td>
+                                                                <%= expo.tonage %>
+                                                            </td>
+                                                            <td>
+                                                                <%= expo.value %>
+                                                            </td>
+                                                            <td>
+                                                                <%= expo.district %>
+                                                            </td>
+                                                            <td>
+                                                                <%= expo.region %>
+                                                            </td>
+                                                            <td>
+                                                                <%= expo.districtFrom%>
+                                                            </td>
+                                                            <td>
+                                                                <%= expo.countryTO%>
+                                                            </td>
+                                                            <td>
+                                                                <%= expo.date %>
+                                                            </td>
+                                                        </tr>
+                                                        <% }); %>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <!-- #END# Exportable Table -->
                     </div>
-                </div>
-            </div>
-            <!-- #END# Exportable Table -->
-        </div>
-    </section>
-    
-    <% include ../admin-jslinks.ejs %>
-  </body>
+                </section>
 
-  </html>
+                <% include ../admin-jslinks.ejs %>
+    </body>
+
+    </html>

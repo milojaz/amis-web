@@ -1,58 +1,70 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema
 
-var marketSchema = mongoose.Schema({
-    locality:  {
+var marketSchema = new Schema({
+    mktLocality: {
         type: String,
         required: true
     },
-    chiefdom:  {
+    mktChiefdom: {
         type: String
     },
-    district:  {
+    mktDistrict: {
+        type: String,
+    },
+    mktRegion: {
+        type: String,
+    },
+    marketPlace: {
+        type: String,
+    },
+    marketType: {
+        type: String,
+    },
+    mktEnumerator: {
         type: String,
         required: true
     },
-    product:  {
-        type: String,
-        required: true
+    mktProductCategory: {
+        type: String
     },
-    region:  {
+    mktProductName: {
         type: String,
-        required: true
     },
-    enumerator:  {
+    WHS_Unit: {
         type: String,
-        required: true
     },
-    date:  {
+    WHS_Weight: {
+        type: Number,
+    },
+    WHS_Price: {
+        type: Number,
+    },
+    RET_Unit: {
+        type: String,
+    },
+    RET_Weight: {
+        type: Number,
+    },
+    RET_Price: {
+        type: Number,
+    },
+    FG_Unit: {
+        type: String,
+    },
+    FG_Weight: {
+        type: Number,
+    },
+    FG_Price: {
+        type: Number,
+    },
+    date: {
         type: Date,
         default: Date.now()
     },
-    wholesale_unit:  {
-        type: String,
-        required: true
-    },
-    wholesale_weight:  {
-        type: String,
-        required: true
-    },
-    wholesale_price: {
-        type: String,
-        required: true
-    },
-    retail_unit:  {
-        type: String,
-        required: true
-    },
-    retail_weight : {
-        type: String,
-        required: true
-    },
-    retail_price: {
-        type: String,
-        required: true
-    }
-    
+
+
 });
 
-module.exports =  mongoose.model('marketData', marketSchema);
+var MarketData = mongoose.model('MarketData', marketSchema);
+module.exports = MarketData

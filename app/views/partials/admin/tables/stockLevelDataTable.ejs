@@ -1,106 +1,169 @@
 <% include ../admin-head %>
 
-<body class="theme-green">
-    <!-- Page Loader -->
-    <% include ../admin-page-loader %>
-    <!-- #END# Page Loader -->
-    <!-- Overlay For Sidebars -->
-    <div class="overlay"></div>
-    <!-- #END# Overlay For Sidebars -->
-    <!-- Top Bar -->
-    <% include ../top-nav %>
-    <!-- #Top Bar -->
-    <section>
-        <!-- Left Sidebar -->
-        <% include ../admin-left-sidebar %>
-        <!-- #END# Left Sidebar -->
-        <!-- Right Sidebar -->
-        <% include ../admin-right-sidebar %>
-        <!-- #END# Right Sidebar -->
-    </section>
+    <body class="theme-green">
+        <!-- Page Loader -->
+        <% include ../admin-page-loader %>
+            <!-- #END# Page Loader -->
+            <!-- Overlay For Sidebars -->
+            <div class="overlay"></div>
+            <!-- #END# Overlay For Sidebars -->
+            <!-- Top Bar -->
+            <% include ../top-nav %>
+                <!-- #Top Bar -->
+                <section>
+                    <!-- Left Sidebar -->
+                    <% include ../admin-left-sidebar %>
+                        <!-- #END# Left Sidebar -->
+                        <!-- Right Sidebar -->
+                        <% include ../admin-right-sidebar %>
+                            <!-- #END# Right Sidebar -->
+                </section>
 
-    <section class="content">
-        <div class="container-fluid">
-            <div class="block-header">
-                <h2>STOCK LEVEL MONITORING DATA TABLE</h2>
-            </div>
-            <!-- Exportable Table -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2 class="center">
-                                Showing all Stock Level data received
-                            </h2>
 
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="block-header">
+                            <h2>STOCK LEVEL MONITORING DATA TABLE</h2>
                         </div>
-                        <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover" id="stockLevelTableBody">
-                                    <!-- dataTable js-exportable -->
-                                    <thead>
-                                        <tr>
-                                            <th>District</th>
-                                            <th>Market(Place)</th>
-                                            <th>Market Locality</th>
-                                            <th>Commodity Category</th>
-                                            <th>Commodity</th>
-                                            <th>Market Type</th>
-                                            <th>Market Price</th>
-                                            <th>Quantity(Weight)</th>
-                                            <th>Quantity(Store)</th>
-                                            <th>Quantity(Sold)</th>
-                                            <th>Stock Level</th>
-                                            <th>Destination</th>
-                                            <th>Grand Total</th>
-                                            <th>Rent Cost</th>
-                                            <th>Transport Cost</th>
-                                            <th>Electricity Cost</th>
-                                            <th>Security(Own) Cost</th>
-                                            <th>Security(Market Own)Cost</th>
-                                            <th>Fumigation Cost</th>
-                                            <th>Chemical Treatment Cost</th>
-                                            <th>Average Cost</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>District</th>
-                                            <th>Market(Place)</th>
-                                            <th>Market Locality</th>
-                                            <th>Commodity Category</th>
-                                            <th>Commodity</th>
-                                            <th>Market Type</th>
-                                            <th>Market Price</th>
-                                            <th>Quantity(Weight)</th>
-                                            <th>Quantity(Store)</th>
-                                            <th>Quantity(Sold)</th>
-                                            <th>Stock Level</th>
-                                            <th>Destination</th>
-                                            <th>Grand Total</th>
-                                            <th>Rent Cost</th>
-                                            <th>Transport Cost</th>
-                                            <th>Electricity Cost</th>
-                                            <th>Security(Own) Cost</th>
-                                            <th>Security(Market Own)Cost</th>
-                                            <th>Fumigation Cost</th>
-                                            <th>Chemical Treatment Cost</th>
-                                            <th>Average Cost</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                    </tbody>
-                                </table>
+                        <!-- Exportable Table -->
+                        <div class="row clearfix">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="card">
+                                    <div class="header">
+                                        <h2 class="center">
+                                            Showing all Stock Level data received
+                                        </h2>
+
+                                    </div>
+                                    <div class="body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="stockLevelTableBody">
+                                                <!-- dataTable js-exportable -->
+                                                <thead>
+                                                    <tr>
+                                                        <th>District</th>
+                                                        <th>Market(Place)</th>
+                                                        <th>Market Locality</th>
+                                                        <th>Market Type</th>
+                                                        <th>Product Category</th>
+                                                        <th>Products</th>
+                                                        <th>Quantity (Store)</th>
+                                                        <th>Quantity Unit</th>
+                                                        <th>Quantity(Sold)</th>
+                                                        <th>Stock Level</th>
+                                                        <th>Destination</th>
+                                                        <th>Grand Total</th>
+                                                        <th>Rent Cost</th>
+                                                        <th>Transport Cost</th>
+                                                        <th>Electricity Cost</th>
+                                                        <th>Security(Own) Cost</th>
+                                                        <th>Security(Market Own)Cost</th>
+                                                        <th>Fumigation Cost</th>
+                                                        <th>Chemical Treatment Cost</th>
+                                                        <th>Average Cost</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>District</th>
+                                                        <th>Market(Place)</th>
+                                                        <th>Market Locality</th>
+                                                        <th>Market Type</th>
+                                                        <th>Product Category</th>
+                                                        <th>Products</th>
+                                                        <th>Quantity (Store)</th>
+                                                        <th>Quantity Unit</th>
+                                                        <th>Quantity(Sold)</th>
+                                                        <th>Stock Level</th>
+                                                        <th>Destination</th>
+                                                        <th>Grand Total</th>
+                                                        <th>Rent Cost</th>
+                                                        <th>Transport Cost</th>
+                                                        <th>Electricity Cost</th>
+                                                        <th>Security(Own) Cost</th>
+                                                        <th>Security(Market Own)Cost</th>
+                                                        <th>Fumigation Cost</th>
+                                                        <th>Chemical Treatment Cost</th>
+                                                        <th>Average Cost</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody>
+                                                    <% stockData.forEach(stock => {%>
+                                                        <tr>
+                                                            <td>
+                                                                <%=stock.ttmDistrict %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.marketPlace %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.ttmMarket %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.market_type %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.msuProductCategory %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.products %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.quantityStore %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.quantityUnit %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.quantitySold %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.stockLevel %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.stockDestination %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.grandTotal %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.rent %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.transportCost %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.electricity%>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.securityOwn %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.securityMarketOwn %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.fumigation %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.chemicalTreatment %>
+                                                            </td>
+                                                            <td>
+                                                                <%=stock.averageCost %>
+                                                            </td>
+                                                        </tr>
+                                                        <% }); %>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <!-- #END# Exportable Table -->
                     </div>
-                </div>
-            </div>
-            <!-- #END# Exportable Table -->
-        </div>
-    </section>
+                </section>
 
-    <% include ../admin-jslinks.ejs %>
-</body>
+                <% include ../admin-jslinks.ejs %>
+    </body>
 
-</html>
+    </html>
