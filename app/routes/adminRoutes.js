@@ -135,7 +135,8 @@ router.route('/fbo/record/edit/:id')
 
 // about get and post routes
 router.route('/about')
-    .get(isUserAuthenticated, adminController.aboutGet);
+    .get(isUserAuthenticated, adminController.aboutGet)
+    .post(isUserAuthenticated, adminController.aboutPost)
 
 // about edit post and get routes
 router.route('/about/edit/:id')

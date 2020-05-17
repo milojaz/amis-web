@@ -1560,12 +1560,12 @@ module.exports = {
         aboutModel.find()
             .then(data => {
                 console.log(data);
-                // res.render('partials/admin/forms/aboutForm', {
-                //     pageTitle: "about-page",
-                //     pageID: "about-page",
-                //     fetchedAbout: data,
-                //     adminUser: req.user
-                // });
+                res.render('partials/admin/forms/aboutForm', {
+                    pageTitle: "about-page",
+                    pageID: "about-page",
+                    fetchedAbout: data,
+                    adminUser: req.user
+                });
             })
             .catch(err => {
                 console.log(err);
@@ -1640,6 +1640,61 @@ module.exports = {
         }
 
     },
+
+    // learning post controller
+    aboutPost: (req, res) => {
+        // getting the variables
+        const { about_heading, about_content } = req.body;
+
+        // getting the id of the about
+        const id = req.params.id;
+
+        // error arrays
+        let errors = [];
+
+        // check required fields
+        if (!about_heading || !about_content) {
+            errors.push({ msg: 'Please fill in the fields before publising' });
+        }
+
+        // check if we do have some errors
+        if (errors.length > 0) {
+            // re-render the page
+            res.render('partials/admin/forms/aboutForm', {
+                pageTitle: "about-page",
+                pageID: "about-page",
+                adminUser: req.user,
+                errors,
+                about_heading,
+                about_content
+            });
+        } else {
+
+            var newAbout = new aboutModel({
+                title: req.body.about_heading,
+                content: req.body.about_content
+            });
+
+            // check if the district name already exist
+            aboutModel.findOne({ title: about_heading })
+                .then(info => {
+                    if (info) {
+                        req.flash('error_msg', `An info with the title ${info.title} already exist`);
+                        res.redirect('/admin/learning-info');
+
+                    } else {
+                        // saving the data
+                        newAbout.save()
+                            .then(info => {
+                                req.flash('success_msg', 'About Amis Posted');
+                                res.redirect('/admin/learning-info');
+                                console.log(info);
+                            });
+                    }
+                });
+        }
+    },
+
 
     // learning get controller
     learningGet: (req, res) => {
